@@ -25,10 +25,17 @@ class Display
       end
       print "\n"
     end
-    
+
   end
 
   def cursor(start = nil, ending = nil)
+
+# begin
+  while start == ending || board.board[start.first][start.last].is_a?(Blank)
+
+    start = nil
+    ending = nil
+
     while start.nil?
       start = get_input
       render
@@ -38,6 +45,9 @@ class Display
       ending = get_input
       render
     end
+
+  end
+
 
     board.move(start,ending)
     render

@@ -1,8 +1,8 @@
 require_relative 'Piece'
-require_relative 'DiagonalMove'
+require_relative 'SlidingMove'
 
 class Bishop < Piece
-  extend DiagonalMove
+  include SlidingMove
 
   attr_reader :color, :symbol
 
@@ -11,12 +11,8 @@ class Bishop < Piece
     @symbol = " ♗ "
   end
 
-  def move(start, end_point)
-    if DiagonalMove.diagonal_valid?(start, end_point)
-      @current_pos = end_point
-    else
-      raise "I can't go there"
-    end
+  def valid_move?(start, ending)
+    diagonal_valid_move?(start, ending)
   end
 
 end

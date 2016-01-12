@@ -50,12 +50,19 @@ class Board
       #raise exception if start.nil?
     #if end_pos is valid_move?
     # begin
-      if start.nil?
-        # raise "There is no piece there!"
-      else
-        take_piece(start,end_point)
 
+      # if board[start.first][start.last].is_a?(Blank)
+      #   raise "There is no piece there!"
+      # else
+      if valid_move?(start,end_point)
+        take_piece(start,end_point)
+      else
+        raise "Invalid Move!"
       end
+      # end
+    # rescue
+    #
+    # end
     # rescue InvalidMoveError
 
   end
@@ -67,7 +74,7 @@ class Board
 
 
   def valid_move?(start, end_point)
-    # if end point is off board
+    board[start.first][start.last].valid_move?(start,end_point)
   end
 
 end

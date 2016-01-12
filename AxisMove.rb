@@ -1,6 +1,6 @@
 module AxisMove
 
-  def valid_move?(start,end_pos)
+  def self.valid_move?(start,end_pos)
     axis_move_pool(start).include?(end_pos)
   end
 
