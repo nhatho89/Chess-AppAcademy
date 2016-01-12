@@ -1,6 +1,7 @@
-require_relative "Board.rb"
+require_relative "Board"
 require 'colorize'
 require_relative 'cursorable'
+
 class Display
   include Cursorable
   attr_reader :board
@@ -17,13 +18,14 @@ class Display
         if cursor_pos.first == idx1 && cursor_pos.last == idx2
           print board.board[cursor_pos.first][cursor_pos.last].symbol.colorize(:background => :red)
         elsif (idx1 + idx2).even?
-          print el.colorize(:color => :blue, :background => :white)
+          print el.symbol.colorize(:color => el.color.to_sym, :background => :white)
         elsif (idx1 + idx2).odd?
-          print el.colorize(:color => :yellow, :background => :magenta)
+          print el.symbol.colorize(:color => el.color.to_sym, :background => :magenta)
         end
       end
       print "\n"
     end
+    
   end
 
   def cursor(start = nil, ending = nil)
@@ -37,7 +39,7 @@ class Display
       render
     end
 
-     board.move(start,ending)
+    board.move(start,ending)
     render
   end
 

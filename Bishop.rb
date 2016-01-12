@@ -1,7 +1,13 @@
-class Bishop < Piece
-  extend "DiagonalMove"
+require_relative 'Piece'
+require_relative 'DiagonalMove'
 
-  def initialize
+class Bishop < Piece
+  extend DiagonalMove
+
+  attr_reader :color, :symbol
+
+  def initialize(color)
+    super(color)
     @symbol = " ♗ "
   end
 

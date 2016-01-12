@@ -1,7 +1,11 @@
+require_relative 'Piece'
 class King < Piece
 
-  def initialize
-    @symbol = " ♔ " 
+  attr_reader :color, :symbol
+
+  def initialize(color)
+    super(color)
+    @symbol = " ♔ "
   end
 
 end
