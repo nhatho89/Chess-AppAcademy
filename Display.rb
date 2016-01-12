@@ -15,7 +15,7 @@ class Display
     board.board.each_with_index do |row,idx1|
       row.each_with_index do |el,idx2|
         if cursor_pos.first == idx1 && cursor_pos.last == idx2
-          print board.board[cursor_pos.first][cursor_pos.last].colorize(:background => :red)
+          print board.board[cursor_pos.first][cursor_pos.last].symbol.colorize(:background => :red)
         elsif (idx1 + idx2).even?
           print el.colorize(:color => :blue, :background => :white)
         elsif (idx1 + idx2).odd?
