@@ -1,11 +1,12 @@
 require_relative 'Piece'
 class Pawn < Piece
 
-  attr_reader :color, :symbol
+  attr_reader :color, :symbol, :board
 
-  def initialize(color)
-    super(color)
+  def initialize(color,board)
+    super(color, board)
     @symbol = " ♙ "
+    @board = board.deep_dup
   end
 
   def valid_move?(start,end_pos)

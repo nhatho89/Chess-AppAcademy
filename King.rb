@@ -5,8 +5,9 @@ class King < Piece
   attr_reader :color, :symbol
 
   def initialize(color)
-    super(color)
+    super(color, board)
     @symbol = " ♔ "
+    @board = board.deep_dup
   end
 
   def valid_move?(start,end_pos)

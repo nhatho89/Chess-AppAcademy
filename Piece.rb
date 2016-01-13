@@ -2,9 +2,10 @@ class Piece
   attr_reader :name, :color
   attr_accessor :pos
 
-  def initialize(color)
+  def initialize(color, board)
     # @name = name
     @color = color
+    @board = board
     # @current_position = pos
   end
 
